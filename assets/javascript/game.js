@@ -4,6 +4,7 @@ var losses = 0;
 var guessesLeft = 6;
 var tries = [];
 function gameReset(){guessesLeft = 6; tries = []; losses = 0; wins = 0};
+var word = document.getElementById('word');
 
 let stats = {
     PirateWords: ["abandon","adventure","ahoy","anchor","armada","arms","seashore","assault","attack"],
@@ -15,19 +16,24 @@ let stats = {
 };
 
 document.onkeyup = function (start){
+    gameWord = Math.floor(Math.random() * stats.PirateWords.length)
     stats.gameReset;
+    var a = (pirateWords[gameWord]);
+    var b = a.split('');
+    console.log(b);
+    word.innerHTML=" "
+
+    for (i=0;i<b.length;i++){
+        word.innerHTML += ' _ '
+    }
     
-    if (start.key == ";"){
-        gameWord = Math.floor(Math.random() * stats.PirateWords.length);
-        for (var i=0;i<pirateWords.length;i++){var a = (pirateWords[gameWord]);var b = [];var c = a.split('').join(',');b.push(c);for (i = 0;i<b.length;i++){c.push("_");console.log(c)}}}
-    
-    else alert("Press ; to walk the plank, yarr!");
+    //else alert("Press ; to walk the plank, yarr!");
 
 };
 
-for (var i = 0;i<pirateWords.length,i++;){
-    var a = gameWord.split(""); var letters=[]; letters.push(a);console.log(letters)
-}
+// for (var i = 0;i<pirateWords.length,i++;){
+    // var a = gameWord.split(""); var letters=[]; letters.push(a);console.log(letters)
+// }
 
 
 
